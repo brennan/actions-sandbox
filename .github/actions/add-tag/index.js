@@ -4,7 +4,11 @@ const core = require('@actions/core')
 const {
     GITHUB_TOKEN
 } = process.env
+
 const PR_LABEL = 'TEST'
+const REPO_OWNER = 'brennan'
+const REPO_NAME = 'actions-sandbox'
+
 const octokit = new github.GitHub(GITHUB_TOKEN)
 
 async function run () {
@@ -16,6 +20,8 @@ async function run () {
   }
 
   await octokit.issues.addLabels({
+    owner: REPO_OWNER,
+    repo: REPO_NAME,
     issue_number: number,
     labels: [PR_LABEL]
   })
