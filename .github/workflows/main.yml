@@ -2,6 +2,7 @@ on:
   pull_request:
     branches:
       - master
+      - 'SEG*'
 
 jobs:
   add_tag_job:
