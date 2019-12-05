@@ -13,6 +13,7 @@ const octokit = new github.GitHub(GITHUB_TOKEN)
 
 async function run () {
   const { number, pull_request } = github.context.payload
+  console.log(pull_request.user.login)
 
     // No need to check if the label has already been applied.
   if (pull_request.labels.includes(PR_LABEL)) {
